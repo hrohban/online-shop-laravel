@@ -43,7 +43,7 @@ class CategoryController extends Controller
         $inputs['slug'] = str_replace(' ', '-', $inputs['name']) . '-' . Str::random(5);
         $inputs['image'] = 'image';
         $postCategory = PostCategory::create($inputs);
-        return redirect()->route('admin.content.category.index');
+        return redirect()->route('admin.content.category.index')->with('swal-success', 'دسته بندی جدید شما با موفقیت ثبت شد');
     }
 
     /**
@@ -92,23 +92,25 @@ class CategoryController extends Controller
     public function destroy(PostCategory $postCategory)
     {
        $result = $postCategory->delete();
-       return redirect()->route('admin.content.category.index');
+       return redirect()->route('admin.content.category.index')->with('swal-success', 'دسته بندی شما با موفقیت حذف شد');
     }
+
 
     public function status(PostCategory $postCategory){
-        $postCategory->status= $postCategory->status == 0 ?1 :0;
-        $result=$postCategory->save();
+
+        $postCategory->status = $postCategory->status == 0 ? 1 : 0;
+        $result = $postCategory->save();
         if($result){
-            if($postCategory->status==0){
-                return response()->json(['status'=>true,'checked'=>false]);
-            }
-            else{
-                return response()->json(['status'=>true,'checked'=>true]);
-            }
+                if($postCategory->status == 0){
+                    return response()->json(['status' => true, 'checked' => false]);
+                }
+                else{
+                    return response()->json(['status' => true, 'checked' => true]);
+                }
         }
         else{
-            return response()->json(['status'=>false]);
+            return response()->json(['status' => false]);
         }
-    }
 
+    }
 }
