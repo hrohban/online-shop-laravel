@@ -22,9 +22,9 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function create()
     {
-        return view('admin.market.comment.show');
+        //
     }
 
     /**
@@ -44,10 +44,10 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function show($id)
-    // {
-    //     //
-    // }
+    public function show()
+    {
+        return view('admin.market.comment.show');
+    }
 
     /**
      * Show the form for editing the specified resource.
