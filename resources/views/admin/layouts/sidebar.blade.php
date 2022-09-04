@@ -74,6 +74,20 @@
             </a>
 
 
+            <section class="sidebar-part-title">بخش آزمون ها</section>
+            <a href="{{ route('admin.user.admin-user.index') }}" class="sidebar-link">
+                <i class="fas fa-bars"></i>
+                <span>آزمون ها</span>
+            </a>
+            <a href="{{ route('admin.user.customer.index') }}" class="sidebar-link">
+                <i class="fas fa-bars"></i>
+                <span>نمرات</span>
+            </a>
+            
+
+
+
+
 
             <section class="sidebar-part-title">بخش محتوی</section>
             <a href="{{ route('admin.content.category.index') }}" class="sidebar-link">

@@ -33,4 +33,20 @@ class Product extends Model
         return $this->belongsTo(Brand::class, 'brand_id');
     }
 
+    public function metas()
+    {
+        return $this->hasMany(ProductMeta::class);
+    }
+
+    public function colors()
+    {
+        return $this->hasMany(ProductColor::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(Gallery::class);
+    }
+
+
 }
