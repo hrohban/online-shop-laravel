@@ -54,4 +54,11 @@ class Product extends Model
     }
 
 
+    public function comments()
+    {
+        return $this->morphMany('App\Models\Content\Comment', 'commentable');
+    }
+
+
+
 }

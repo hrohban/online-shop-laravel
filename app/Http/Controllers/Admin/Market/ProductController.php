@@ -135,19 +135,21 @@ class ProductController extends Controller
 
         DB::transaction(function () use ($request, $inputs, $product) {
         $product->update($inputs);
-        $meta_keys = $request->meta_key;
-        $meta_values = $request->meta_value;
-        $meta_ids = array_keys($request->meta_key);
-        $metas = array_map(function ($meta_id, $meta_key, $meta_value) {
-            return array_combine(
-              ['meta_id', 'meta_key', 'meta_value'],
-              [$meta_id, $meta_key, $meta_value]
-            );
-          }, $meta_ids, $meta_keys, $meta_values);
-        foreach ($metas as $meta){
-            ProductMeta::where('id', $meta['meta_id'])->update(
-            ['meta_key' => $meta['meta_key'], 'meta_value' => $meta['meta_value']]
-            );
+        if ($request->meta_key != null) {
+            $meta_keys = $request->meta_key;
+            $meta_values = $request->meta_value;
+            $meta_ids = array_keys($request->meta_key);
+            $metas = array_map(function ($meta_id, $meta_key, $meta_value) {
+                return array_combine(
+                    ['meta_id', 'meta_key', 'meta_value'],
+                    [$meta_id, $meta_key, $meta_value]
+                );
+            }, $meta_ids, $meta_keys, $meta_values);
+            foreach ($metas as $meta) {
+                ProductMeta::where('id', $meta['meta_id'])->update(
+                    ['meta_key' => $meta['meta_key'], 'meta_value' => $meta['meta_value']]
+                );
+            }
         }
     });
 
