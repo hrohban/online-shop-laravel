@@ -181,6 +181,7 @@ return [
         'persian_name' => 'نام فارسی',
         'price_increase' => 'افزایش قیمت',
         'color_name' => 'نام رنگ',
+        'unit' => 'واحد اندازه گیری',
 
     ],
 ];
