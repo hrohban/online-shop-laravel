@@ -49,9 +49,9 @@
                 </section>
                 <section class="sidebar-dropdown">
                     <a href="{{ route('admin.market.payment.index') }}">تمام پرداخت ها</a>
-                    <a href="{{ route('admin.market.payment.index') }}">پرداخت های آنلاین</a>
-                    <a href="{{ route('admin.market.payment.index') }}">پرداخت های آفلاین</a>
-                    <a href="{{ route('admin.market.payment.index') }}">پرداخت در محل</a>
+                    <a href="{{ route('admin.market.payment.online') }}">پرداخت های آنلاین</a>
+                    <a href="{{ route('admin.market.payment.offline') }}">پرداخت های آفلاین</a>
+                    <a href="{{ route('admin.market.payment.cash') }}">پرداخت در محل</a>
                 </section>
             </section>
 
@@ -72,20 +72,6 @@
                 <i class="fas fa-bars"></i>
                 <span>روش های ارسال</span>
             </a>
-
-
-            <section class="sidebar-part-title">بخش آزمون ها</section>
-            <a href="{{ route('admin.user.admin-user.index') }}" class="sidebar-link">
-                <i class="fas fa-bars"></i>
-                <span>آزمون ها</span>
-            </a>
-            <a href="{{ route('admin.user.customer.index') }}" class="sidebar-link">
-                <i class="fas fa-bars"></i>
-                <span>نمرات</span>
-            </a>
-            
-
-
 
 
 
