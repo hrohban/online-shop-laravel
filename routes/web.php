@@ -34,6 +34,7 @@ use App\Http\Controllers\Admin\Ticket\TicketCategoryController;
 use App\Http\Controllers\Admin\Ticket\TicketPriorityController;
 use App\Http\Controllers\Admin\Content\CommentController as ContentCommentController;
 use App\Http\Controllers\Admin\Content\CategoryController as ContentCategoryController;
+use App\Http\Controllers\Auth\Customer\LoginRegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -412,6 +413,13 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     });
 
     Route::post('/notification/read-all', [NotificationController::class, 'readAll'])->name('admin.notification.readAll');
+});
+
+
+
+Route::namespace('Auth')->group(function () {
+   Route::get('login-register', [LoginRegisterController::class, 'loginRegisterForm'])->name('auth.customer.login-register-form');
+   Route::post('/login-register', [LoginRegisterController::class, 'loginRegister'])->name('auth.customer.login-register');
 });
 
 
