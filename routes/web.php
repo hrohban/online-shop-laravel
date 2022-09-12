@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\content\PostController;
 use App\Http\Controllers\Admin\Market\BrandController;
 use App\Http\Controllers\Admin\Market\OrderController;
 use App\Http\Controllers\Admin\Market\StoreController;
+use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\admin\notify\EmailController;
 use App\Http\Controllers\admin\ticket\TicketController;
 use App\Http\Controllers\Admin\User\CustomerController;
@@ -409,6 +410,8 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::put('/update/{setting}', [SettingController::class, 'update'])->name('admin.setting.update');
         Route::delete('/destroy/{setting}', [SettingController::class, 'destroy'])->name('admin.setting.destroy');
     });
+
+    Route::post('/notification/read-all', [NotificationController::class, 'readAll'])->name('admin.notification.readAll');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
